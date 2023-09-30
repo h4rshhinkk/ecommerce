@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<ul>
+    {% for sub_category in object_list %}
+    <li>
+        {{sub_category}}
+    </li>
+    {% endfor %}
+
+</ul>
+
+
+{% endblock content %}
