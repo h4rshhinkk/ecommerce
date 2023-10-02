@@ -14,5 +14,3 @@ class SubCategoryView(ListView):
 class ProductView(ListView):
     model = Product
 
-
-    

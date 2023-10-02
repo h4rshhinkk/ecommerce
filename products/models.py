@@ -30,6 +30,7 @@ class Product(models.Model):
     sub_category = models.ForeignKey('products.SubCategory',on_delete=models.CASCADE)
     product_name = models.CharField(max_length=50)
     price = models.DecimalField( max_digits=9, decimal_places=2)
+    image = models.ImageField(upload_to="product/",)
     description = models.TextField()
 
 
