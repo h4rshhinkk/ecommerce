@@ -1,8 +1,10 @@
-{% extends "base.html" %} 
+{% extends "main/base.html" %} 
+{% load static %} 
 {% block content %}
 
 
-<div class="container mt-5 mb-5">
+
+<!-- <div class="container mt-5 mb-5">
   <div class="row">
     {% for product in object_list %}
     <div class="col-lg-4 mb-5">
@@ -17,10 +19,76 @@
     </div>
     {% endfor %}
   </div>
+</div> -->
 
 
-</div>
+<!--Products With Tabs-->
+<section class="section product-slider tab-slider-product">
+  <div class="container">
+      <div class="section-header d-none">
+          <h2>Products</h2>
+          <p>Browse the huge variety of our best seller</p>
+      </div>
+
+      <div class="tabs-listing">
+          <ul class="nav nav-tabs style1 justify-content-center" id="productTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link head-font active" id="bestsellers-tab" data-bs-toggle="tab" data-bs-target="#bestsellers" type="button" role="tab" aria-controls="bestsellers" aria-selected="true">Product</button>
+              </li>
+              
+          </ul>
+
+          <div class="tab-content" id="productTabsContent">
+              <div class="tab-pane show active" id="bestsellers" role="tabpanel" aria-labelledby="bestsellers-tab">
+                  <!--Product Grid-->
+                  <div class="grid-products grid-view-items">
+                      <div class="row col-row product-options row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-3 row-cols-2">                                   
+                        {% for product in object_list %}
+                        <div class="item col-item" >
+                              <div class="product-box" >
+                                <!-- Start Product Image -->
+                                  <div class="product-image" style="height: 270px;">
+                                      <!-- Start Product Image -->
+                                      <a href="" class="product-img rounded-3"><img class="blur-up lazyload" src="{{product.image.url}}" alt="Product" title="Product" width="625" height="808" /></a>
+                                      <!-- End Product Image -->
+                                  </div>
+                                <!-- End Product Image -->
+                                  <!-- Start Product Details -->
+                                  <div class="product-details">
+                                      <!-- Product Name -->
+                                      <div class="product-name">
+                                          <a href="">{{product.product_name}}</a>
+                                      </div>
+                                      <!-- End Product Name -->
+                                      <!-- Product Price -->
+                                      <div class="product-price">
+                                          <span class="price">₹ {{product.price}}</span>
+                                      </div>
+                                      <!-- End Product Price -->
+                                     
+                                      <a href="{{product.get_absolute_url}}" class="btn btn-secondary ">Buy Now</a>
+                                      <a href="" class="btn btn-secondary ">Add to Cart</a>
+                                      
+                                  </div>
+                                  <!-- End product details -->
+                              </div>
+                        </div>
+                        {% endfor %}                                           
+                      </div>  
+
+                      <!-- <div class="view-collection text-center mt-4 mt-md-5">
+                          <a href="shop-left-sidebar.html" class="btn btn-secondary btn-lg">View Collection</a>
+                      </div> -->
+                  </div>
+                  <!--End Product Grid-->
+              </div>
+
+            
+          </div>
+      </div>
+  </div>
+</section>
+<!--End Products With Tabs-->
 
 
-
-{% endblock content %}
+{% endblock  %}
